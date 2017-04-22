@@ -42,7 +42,7 @@ class SearchBar extends Component {
       // with 'super' we call the parent method defined on the parent class
 
       //Initialize state:
-      this.state = { term: '' };
+      this.state = { term: 'starting value' };
       // whenever the user updates the search input, 'term' is the property that will record the change on
       // so we will update this.state.term to be the value of the input
 
@@ -60,11 +60,17 @@ class SearchBar extends Component {
     // ALWAYS manipulate the state with 'setState' object !
     return (
       <div>
-       <input onChange = { event => this.setState( { term: event.target.value } ) } />
-      //  Value of the input: {this.state.term}
+       <input
+       value = { this.state.term }
+       onChange = { event => this.setState( { term: event.target.value } ) } />
       </div>
-
     );
+
+    // Controlled field: has its value set by the state! - Our input is controlled input!
+
+    // THE REAL LOGIC: when users types somenthing, they don't change the input value, they just trigger an event,
+    // which updates the state, causes the component to rerender
+
     // es6 feature: arrow function
     // we replace our one line handler with arrow function; write less, cleaner code
 
