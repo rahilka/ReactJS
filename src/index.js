@@ -27,6 +27,9 @@ import ReactDOM from 'react-dom';
 // we use ReactDOM
 // ReactDOM is used to interact with the actual DOM
 
+// our you_tube api key that will allow us to make requests to youtube
+const API_KEY = 'AIzaSyAeahdoCC9rEqouZxN7k2EYv6JLQh38Ydw';
+
 // Create a new component that should produce some HTML
 
 // RULE: We always make one component per file!
