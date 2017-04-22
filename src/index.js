@@ -29,6 +29,8 @@ import ReactDOM from 'react-dom';
 
 // Create a new component that should produce some HTML
 
+// RULE: We always make one component per file!
+
 // render = place this component's html on the page
 
 // When we create a component,
