@@ -22,6 +22,23 @@ import React, { Component } from 'react';
 // meaning: define class SearchBar and give it access to
 // all functionality that React.component has
 class SearchBar extends Component {
+
+    constructor(props) {
+      // The 'constructor' function that all js classes have,
+      // is the first and only function called automatically,
+      // whenever a new instance of the class is created.
+      // And is reserved for initializing variables, state etc. for our class
+
+      super(props);
+      // with 'super' we call the parent method defined on the parent class
+
+      //Initialize state:
+      this.state = { term: '' };
+      // whenever the user updates the search input, 'term' is the property that will record the change on
+      // so we will update this.state.term to be the value of the input
+
+    }
+
   // every class based React component that we create,
   // must have a defined 'render' metod
 

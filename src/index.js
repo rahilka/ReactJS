@@ -48,10 +48,15 @@ const API_KEY = 'AIzaSyAeahdoCC9rEqouZxN7k2EYv6JLQh38Ydw';
 // When we create a component,
 // we create a class, a type of a component
 
-// es6 feature: declaring a function
+// es6 feature: declaring an arrow function
+
+// es6 feature: const
+// declaring a variable with const means that
+// this is the final value that this varaible is going to have
+// it is constant!
 
 const App = () => {
-
+  
   // we render our SearchBar component into our App component
 
   return (
@@ -76,14 +81,20 @@ const App = () => {
 
 }
 
+
+
+// STATE: plain javascript object,
+// that is used to record and react to user events
+
+// Each class based component has its own state object
+// Whenever the component's state is changed, the component immediately rerenders
+// And forses all of its children to rerender as well
+// Functional components do not have state!
+
 // App is class, not an instance!
 // So before we try to render the component to the DOM,
 // we need to create an instance from the class
 
-// es6 feature: const
-// declaring a variable with const means that
-// this is the final value that this varaible is going to have
-// it is constant!
 
 
 // Take this component's generated HTML and
