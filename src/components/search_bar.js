@@ -16,6 +16,8 @@ import React, { Component } from 'react';
 //
 // }; // This is a functional react component, because, it literally is a function
 
+// Class component have some additional functionality over functional component
+
 // The following component is class component
 // meaning: define class SearchBar and give it access to
 // all functionality that React.component has
@@ -25,12 +27,26 @@ class SearchBar extends Component {
 
   render() {
     // in our render method, we must return some JSX, otherwise will throw an error
-    return <input />;
+    // all html input elements have a 'change' event
+    // return <input onChange = {(this.onInputChange)} />;
+    return <input onChange = { event => console.log(event.target.value) } />;
+    // es6 feature: arrow function
+    // we replace our one line handler with arrow function; write less, cleaner code
 
   }
 
-}
+  // Handling events in React has two steps:
+  // 1. Declare an event handler (function that will run whenever the event occur)
+  // 2. Pass the event handler to the element that we want to monitor for events
+  // In our case, we want to know whenever our input element in the search bar has its text changed
 
+  // onInputChange(event) {
+  //   // 'event' object contains information about the occured event
+  //   console.log(event.target.value);
+  //
+  // }
+
+}
 
 //make out SearchBar available for other files to access it
 export default SearchBar;
