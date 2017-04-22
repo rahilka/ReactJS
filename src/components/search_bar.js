@@ -46,6 +46,9 @@ class SearchBar extends Component {
       // whenever the user updates the search input, 'term' is the property that will record the change on
       // so we will update this.state.term to be the value of the input
 
+      // !! IMPORTANT
+      // this is the ONLY PLACE IN OUR APP where we will define the state value in this way, with '=' operator
+      // when we will UPDATE the state, we will use 'setState' method !
     }
 
   // every class based React component that we create,
@@ -54,10 +57,18 @@ class SearchBar extends Component {
   render() {
     // in our render method, we must return some JSX, otherwise will throw an error
     // all html input elements have a 'change' event
-    // return <input onChange = {(this.onInputChange)} />;
-    return <input onChange = { event => console.log(event.target.value) } />;
+    // ALWAYS manipulate the state with 'setState' object !
+    return (
+      <div>
+       <input onChange = { event => this.setState( { term: event.target.value } ) } />
+      //  Value of the input: {this.state.term}
+      </div>
+
+    );
     // es6 feature: arrow function
     // we replace our one line handler with arrow function; write less, cleaner code
+
+    // Inside of JSX: when we reference javascript variable, we use '{}' !!
 
   }
 
@@ -71,6 +82,13 @@ class SearchBar extends Component {
   //   console.log(event.target.value);
   //
   // }
+
+
+  // WHAT HAPPENS WHEN WE UPDATE THE INPUT ELEMENT:
+  // 1. The event handler runs
+  // 2. We set the state with the new value of the input
+  // 3. Whenever we update the state, it causes our component to automatically rerender
+  //    and push all the updated information from the render method ino the DOM
 
 }
 
