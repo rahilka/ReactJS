@@ -18,6 +18,13 @@ import React, { Component } from 'react';
 
 // Class component have some additional functionality over functional component
 
+// Functional components are used when we need to take in some information and return some JSX
+
+// A functional component can contain a class based component!
+
+// Class based component are used whenever we have a component that needs to be aware of the state, like:
+// data is changing overtime, user events
+
 // STATE: plain javascript object,
 // that is used to record and react to user events
 
