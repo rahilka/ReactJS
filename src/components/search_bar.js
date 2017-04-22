@@ -18,11 +18,20 @@ import React, { Component } from 'react';
 
 // Class component have some additional functionality over functional component
 
+// STATE: plain javascript object,
+// that is used to record and react to user events
+
+// Each class based component has its own state object
+// Whenever the component's state is changed, the component immediately rerenders
+// And forses all of its children to rerender as well
+// Functional components do not have state!
+
 // The following component is class component
 // meaning: define class SearchBar and give it access to
 // all functionality that React.component has
 class SearchBar extends Component {
 
+    // Initialize the state by defining a constructor method
     constructor(props) {
       // The 'constructor' function that all js classes have,
       // is the first and only function called automatically,
