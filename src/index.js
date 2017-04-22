@@ -14,6 +14,11 @@
 /******************/
 /******************/
 
+// When importing package/library/etc that we have already installed with npm,
+// we use only the name of the package to import
+// When we import something that we wrote, ex. some js file,
+// we need to give the full path to the file
+
 // get React from our installed modules
 // and give me access to it in this file
 
@@ -27,8 +32,12 @@ import ReactDOM from 'react-dom';
 // we use ReactDOM
 // ReactDOM is used to interact with the actual DOM
 
+// SearchBar is equal to our SearchBar component
+import SearchBar from './components/search_bar';
+
 // our you_tube api key that will allow us to make requests to youtube
 const API_KEY = 'AIzaSyAeahdoCC9rEqouZxN7k2EYv6JLQh38Ydw';
+
 
 // Create a new component that should produce some HTML
 
@@ -43,7 +52,17 @@ const API_KEY = 'AIzaSyAeahdoCC9rEqouZxN7k2EYv6JLQh38Ydw';
 
 const App = () => {
 
-  return <div>HI!</div>; // this html-like is JSX
+  // we render our SearchBar component into our App component
+
+  return (
+
+    <div>
+
+      <SearchBar />
+
+    </div>
+
+  ); // this html-like is JSX
   // JSX = subset of JS that allows us to write,
   // what looks like html in our js files
   // but is really, under the hood, javascript
@@ -77,4 +96,5 @@ const App = () => {
 ReactDOM.render(<App />, document.querySelector('.container'));
 // the second argument is reference to an existing DOM node on the page
 // meaning : find the element on the page with class of 'container', and then
-// try to render the App component into that div
+// try to render the App component into that element,
+// which in our case is 'div' element in our index.html file
