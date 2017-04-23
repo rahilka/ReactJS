@@ -121,18 +121,28 @@ class App extends Component {
     super(props);
 
     // our default state:
-    this.state = { videos: [] };
+    this.state = {
+      videos: [],
+      selectedVideo: null
+    };
     // we don't want our videos to be empty at starting,
     // so will call the YTSearch function here:
 
     YTSearch({ key: API_KEY,term: 'oasis' }, (videos) => {
         // here we will update the state with the new list of videos:
-        this.setState({ videos });  // same as: this.setState({ videos: videos });
+        this.setState({
+          videos: videos,
+          selectedVideo: videos[0]
+        });  // same as: this.setState({ videos: videos });
 
         // es6 feature: when we have key and value with the same name,
         // we write only the key, remove ':' and the value
 
     });
+
+    // !!! The selected video will be a video objecta
+    // and it will alvays be passes into video details
+    // To update the selected video, will pass a callback from App to VideoList, and from ther to VideoListItem
 
   }
 
@@ -140,8 +150,10 @@ class App extends Component {
     return (
       <div>
       <SearchBar />
-      <VideoDetail video={this.state.videos[0]} />
-      <VideoList videos={this.state.videos} />
+      <VideoDetail video={this.state.selectedVideo} />
+      <VideoList
+        onVideoSelect = { selectedVideo => this.setState({selectedVideo}) }
+        videos={this.state.videos} />
       </div>
     );
   }

@@ -15,8 +15,18 @@ const VideoList = (props) => {
   // React has a bunch of logic built into it to optimize the process of rendering a list
   // Provide a key for each element in our list - unique value for each video
 
+  // In our main App component, we passes onVideoSelect property to the VideoList tag in the JSX
+  // That means that VideoList now has a property on 'props' called props.onVideoSelect
+
+  // By putting 'onVideoSelect' property on VideoListItem, makes exist on the 'props' on the VideoListItem component
+
   const videoItems = props.videos.map((video) => {
-    return <VideoListItem key = {video.etag} video = {video} />
+    return (
+      <VideoListItem
+        onVideoSelect = {props.onVideoSelect}
+        key = {video.etag}
+        video = {video} />
+    )
   });
 
   return (

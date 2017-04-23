@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const VideoListItem = ({video}) => {
+const VideoListItem = ({video, onVideoSelect}) => {
   // get the video that we passed to VideoList as a property
   // es6 syntax: instead of pass 'props' argument and then const video = props.video;
   // just pass '{video}'
@@ -11,9 +11,12 @@ const VideoListItem = ({video}) => {
 
   const imageUrl = video.snippet.thumbnails.default.url;
 
+  // Whenever a user clicks on the 'li', the event fires, onClick
+  // and we call 'onVideoSelect', and we pass 'video' - the particular videos list item
+
   return (
 
-    <li className="list-group-item">
+    <li onClick={() => onVideoSelect(video)} className="list-group-item">
 
         <div className="video-list media">
 
