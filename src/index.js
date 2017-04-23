@@ -14,6 +14,7 @@
 /******************/
 /******************/
 
+
 // When importing package/library/etc that we have already installed with npm,
 // we use only the name of the package to import
 // When we import something that we wrote, ex. some js file,
@@ -32,11 +33,23 @@ import ReactDOM from 'react-dom';
 // we use ReactDOM
 // ReactDOM is used to interact with the actual DOM
 
+import YTSearch from 'youtube-api-search';
+// call with: object with the search term and api_key
+
 // SearchBar is equal to our SearchBar component
 import SearchBar from './components/search_bar';
 
 // our you_tube api key that will allow us to make requests to youtube
 const API_KEY = 'AIzaSyAeahdoCC9rEqouZxN7k2EYv6JLQh38Ydw';
+// Downwards dataflow: only the most parent component in the app
+// should be responsible for fetching data !!
+// Index.js is the most parent component in our app
+
+YTSearch({ key: API_KEY,term: 'oasis' }, function(data) {
+
+    console.log(data);
+
+});
 
 
 // Create a new component that should produce some HTML
