@@ -39,6 +39,14 @@ import YTSearch from 'youtube-api-search';
 // SearchBar is equal to our SearchBar component
 import SearchBar from './components/search_bar';
 
+// import VideoList component
+import VideoList from './components/video_list';
+// in this and all other component, we will need to pass data from out parent component
+// we do that by adding property in the JSX tag in the render method
+// Passing data like this is referred to as passing props in React
+// In this case, we are passing prop videos to VideoList
+// Any time the components rerender, we'll get a new list of videos
+
 // our you_tube api key that will allow us to make requests to youtube
 const API_KEY = 'AIzaSyAeahdoCC9rEqouZxN7k2EYv6JLQh38Ydw';
 // Downwards dataflow: only the most parent component in the app
@@ -130,6 +138,7 @@ class App extends Component {
     return (
       <div>
       <SearchBar />
+      <VideoList videos={this.state.videos} />
       </div>
     );
   }
