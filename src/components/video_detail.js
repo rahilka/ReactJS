@@ -11,8 +11,15 @@ import React from 'react';
 
 const VideoDetail = ({video}) => {
 
-    // When embedding/navigating to youtube video,
-    // the only thing that changes is the ID of the video
+  // We need to check if the 'video' is provided in the 'props'
+  // before it attempts to render:
+
+  if(!video) {
+    return <div>Loading...</div>
+  }
+
+  // When embedding/navigating to youtube video,
+  // the only thing that changes is the ID of the video
 
   const videoId = video.id.videoId;
   const url = `https://www.youtube.com/embed/${videoId}`; //es6 feature: template strings
