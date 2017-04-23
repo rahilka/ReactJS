@@ -1,6 +1,6 @@
 // Component that will show the videos that the user searched for on the right side of the page
 
-// This component doesn't need state, it doesn't record any user reactions,
+// This component doesn't need state, it doesn't record any user intereactions,
 // it doesn't rerender itself, so we can make it functional component
 
 import React from 'react';
