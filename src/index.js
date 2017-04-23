@@ -20,6 +20,8 @@
 // When we import something that we wrote, ex. some js file,
 // we need to give the full path to the file
 
+import _ from 'lodash';
+
 // get React from our installed modules
 // and give me access to it in this file
 
@@ -125,6 +127,17 @@ class App extends Component {
       videos: [],
       selectedVideo: null
     };
+
+    // !!! The selected video will be a video objecta
+    // and it will alvays be passes into video details
+    // To update the selected video, will pass a callback from App to VideoList, and from ther to VideoListItem
+
+    this.videoSearch('oasis');
+
+  }
+
+  videoSearch(term) {
+
     // we don't want our videos to be empty at starting,
     // so will call the YTSearch function here:
 
@@ -140,16 +153,12 @@ class App extends Component {
 
     });
 
-    // !!! The selected video will be a video objecta
-    // and it will alvays be passes into video details
-    // To update the selected video, will pass a callback from App to VideoList, and from ther to VideoListItem
-
   }
 
   render() {
     return (
       <div>
-      <SearchBar />
+      <SearchBar onSearchTermChange = { term => this.videoSearch(term) } />
       <VideoDetail video={this.state.selectedVideo} />
       <VideoList
         onVideoSelect = { selectedVideo => this.setState({selectedVideo}) }

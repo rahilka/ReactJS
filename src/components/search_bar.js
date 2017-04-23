@@ -69,7 +69,7 @@ class SearchBar extends Component {
       <div className="search-bar">
        <input
        value = { this.state.term }
-       onChange = { event => this.setState( { term: event.target.value } ) } />
+       onChange = { event => this.onInputChange( event.target.value ) } />
       </div>
     );
 
@@ -82,6 +82,13 @@ class SearchBar extends Component {
     // we replace our one line handler with arrow function; write less, cleaner code
 
     // Inside of JSX: when we reference javascript variable, we use '{}' !!
+
+  }
+
+  onInputChange(term) {
+
+      this.setState({term});
+      this.props.onSearchTermChange(term);
 
   }
 
