@@ -12,8 +12,11 @@ const VideoList = (props) => {
   // like : const videos = props.videos
   // to iterate over the videos array wll use 'map'
 
+  // React has a bunch of logic built into it to optimize the process of rendering a list
+  // Provide a key for each element in our list - unique value for each video
+
   const videoItems = props.videos.map((video) => {
-    return <VideoListItem video = {video} />
+    return <VideoListItem key = {video.etag} video = {video} />
   });
 
   return (
