@@ -23,7 +23,7 @@
 // get React from our installed modules
 // and give me access to it in this file
 
-import React from 'react';
+import React, { Component } from 'react';
 //meaning: go and find the library 'react' in my modules
 // and assign it to the variable React
 // React is used to create and manage our components
@@ -45,11 +45,6 @@ const API_KEY = 'AIzaSyAeahdoCC9rEqouZxN7k2EYv6JLQh38Ydw';
 // should be responsible for fetching data !!
 // Index.js is the most parent component in our app
 
-YTSearch({ key: API_KEY,term: 'oasis' }, function(data) {
-
-    console.log(data);
-
-});
 
 
 // Create a new component that should produce some HTML
@@ -68,19 +63,19 @@ YTSearch({ key: API_KEY,term: 'oasis' }, function(data) {
 // this is the final value that this varaible is going to have
 // it is constant!
 
-const App = () => {
-
-  // we render our SearchBar component into our App component
-
-  return (
-
-    <div>
-
-      <SearchBar />
-
-    </div>
-
-  ); // this html-like is JSX
+// const App = () => {
+//
+//   // we render our SearchBar component into our App component
+//
+//   return (
+//
+//     <div>
+//
+//       <SearchBar />
+//
+//     </div>
+//
+//   ); // this html-like is JSX
   // JSX = subset of JS that allows us to write,
   // what looks like html in our js files
   // but is really, under the hood, javascript
@@ -92,7 +87,55 @@ const App = () => {
   // is to make our components a lot more clear
   // and easier to see what's going on
 
+// }
+
+
+
+
+/***************** Refactor functional App component to Class Component *****************/
+
+// Need to make this because our app needs to keep track of the list of videos
+// by recording them on its state,
+// and whenever we want to use state, we need to have a class based
+// And we want to use state because this is data that will change over time
+
+class App extends Component {
+
+  // whenever user enters some new search input,
+  // we need to conduct a new search
+  // and set the result of that search on state,
+  // so we need a constructor:
+
+  constructor(props) {
+
+    super(props);
+
+    // our default state:
+    this.state = { videos: [] };
+    // we don't want our videos to be empty at starting,
+    // so will call the YTSearch function here:
+
+    YTSearch({ key: API_KEY,term: 'oasis' }, (videos) => {
+        // here we will update the state with the new list of videos:
+        this.setState({ videos });  // same as: this.setState({ videos: videos });
+
+        // es6 feature: when we have key and value with the same name,
+        // we write only the key, remove ':' and the value
+
+    });
+
+  }
+
+  render() {
+    return (
+      <div>
+      <SearchBar />
+      </div>
+    );
+  }
+
 }
+
 
 // App is class, not an instance!
 // So before we try to render the component to the DOM,

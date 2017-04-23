@@ -49,7 +49,7 @@ class SearchBar extends Component {
       // with 'super' we call the parent method defined on the parent class
 
       //Initialize state:
-      this.state = { term: 'starting value' };
+      this.state = { term: '' };
       // whenever the user updates the search input, 'term' is the property that will record the change on
       // so we will update this.state.term to be the value of the input
 
