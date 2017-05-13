@@ -68,8 +68,8 @@ class SearchBar extends Component {
     return (
       <div className="search-bar">
        <input
-       value = { this.state.term }
-       onChange = { event => this.onInputChange( event.target.value ) } />
+         value = { this.state.term }
+         onChange = { event => this.onInputChange( event.target.value ) } />
       </div>
     );
 
@@ -108,7 +108,7 @@ class SearchBar extends Component {
   // 1. The event handler runs
   // 2. We set the state with the new value of the input
   // 3. Whenever we update the state, it causes our component to automatically rerender
-  //    and push all the updated information from the render method ino the DOM
+  //    and push all the updated information from the render method into the DOM
 
 }
 

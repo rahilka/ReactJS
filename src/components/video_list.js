@@ -10,12 +10,12 @@ import VideoListItem from './video_list_item';
 // in class somponent, the props are available anywhere, in any method we define, with: 'this.props'
 const VideoList = (props) => {
   // like : const videos = props.videos
-  // to iterate over the videos array wll use 'map'
+  // to iterate over the videos array will use 'map'
 
   // React has a bunch of logic built into it to optimize the process of rendering a list
   // Provide a key for each element in our list - unique value for each video
 
-  // In our main App component, we passes onVideoSelect property to the VideoList tag in the JSX
+  // In our main App component, we pass onVideoSelect property to the VideoList tag in the JSX
   // That means that VideoList now has a property on 'props' called props.onVideoSelect
 
   // By putting 'onVideoSelect' property on VideoListItem, makes exist on the 'props' on the VideoListItem component

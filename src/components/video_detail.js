@@ -3,7 +3,7 @@
 
 // The video deatil component only really need to care about:
 // the video title, description and the url
-// And all of these properties are avilable through 'props', as are gonna be passed doen from the App component
+// And all of these properties are avilable through 'props', as are gonna be passed from the App component
 
 // So, we don't really need any state on the video detail component, that is why will make functional component
 

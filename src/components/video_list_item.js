@@ -12,7 +12,7 @@ const VideoListItem = ({video, onVideoSelect}) => {
   const imageUrl = video.snippet.thumbnails.default.url;
 
   // Whenever a user clicks on the 'li', the event fires, onClick
-  // and we call 'onVideoSelect', and we pass 'video' - the particular videos list item
+  // and we call 'onVideoSelect', and we pass 'video' - the particular video list item
 
   return (
 

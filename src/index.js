@@ -128,23 +128,22 @@ class App extends Component {
       selectedVideo: null
     };
 
-    // !!! The selected video will be a video objecta
-    // and it will alvays be passes into video details
-    // To update the selected video, will pass a callback from App to VideoList, and from ther to VideoListItem
+    // !!! The selected video will be a video object
+    // and it will always be passes into video details
+    // To update the selected video, will pass a callback from App to VideoList, and from there to VideoListItem
 
     this.videoSearch('oasis');
 
   }
 
   videoSearch(term) {
-
     // we don't want our videos to be empty at starting,
     // so will call the YTSearch function here:
 
-    YTSearch({ key: API_KEY,term: 'oasis' }, (videos) => {
+    YTSearch({ key: API_KEY, term: term }, (videos) => {
         // here we will update the state with the new list of videos:
         this.setState({
-          videos: videos,
+          videos,
           selectedVideo: videos[0]
         });  // same as: this.setState({ videos: videos });
 
@@ -158,11 +157,11 @@ class App extends Component {
   render() {
     return (
       <div>
-      <SearchBar onSearchTermChange = { term => this.videoSearch(term) } />
-      <VideoDetail video={this.state.selectedVideo} />
-      <VideoList
-        onVideoSelect = { selectedVideo => this.setState({selectedVideo}) }
-        videos={this.state.videos} />
+        <SearchBar onSearchTermChange = { term => this.videoSearch(term) } />
+        <VideoDetail video={this.state.selectedVideo} />
+        <VideoList
+          onVideoSelect = { selectedVideo => this.setState({selectedVideo}) }
+          videos={this.state.videos} />
       </div>
     );
   }
